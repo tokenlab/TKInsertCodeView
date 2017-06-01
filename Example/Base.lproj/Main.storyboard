@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="VBV-pm-7GV">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--TKInsertCode-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6jT-X2-WEe" customClass="TKInsertCodeView" customModule="TKInsertCodeView">
+                                <rect key="frame" x="32.5" y="155" width="310" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="310" id="eMT-yy-0DS"/>
+                                    <constraint firstAttribute="height" constant="50" id="pzu-J7-wLq"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="numberOfFields">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedBorderColor">
+                                        <color key="value" red="0.99607843139999996" green="0.75294117650000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7P-F8-9lC">
+                                <rect key="frame" x="20" y="104" width="335" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1mM-Rv-pWQ" customClass="TKInsertCodeView" customModule="TKInsertCodeView">
+                                <rect key="frame" x="32.5" y="316" width="310" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="310" id="VOm-F2-O5J"/>
+                                    <constraint firstAttribute="height" constant="50" id="sRd-qm-uYq"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="numberOfFields">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedBorderColor">
+                                        <color key="value" red="1" green="0.21176470589999999" blue="0.63487413189999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom CodeFieldView" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLS-sa-Oas">
+                                <rect key="frame" x="98.5" y="265" width="178.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="1mM-Rv-pWQ" firstAttribute="top" secondItem="lLS-sa-Oas" secondAttribute="bottom" constant="30" id="14B-1v-Sil"/>
+                            <constraint firstItem="6jT-X2-WEe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CyT-Ag-RjW"/>
+                            <constraint firstAttribute="trailing" secondItem="w7P-F8-9lC" secondAttribute="trailing" constant="20" id="RL8-Fn-aSf"/>
+                            <constraint firstItem="1mM-Rv-pWQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Raa-dw-TcX"/>
+                            <constraint firstItem="w7P-F8-9lC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="Zdq-75-nle"/>
+                            <constraint firstItem="lLS-sa-Oas" firstAttribute="top" secondItem="6jT-X2-WEe" secondAttribute="bottom" constant="60" id="aHh-t8-YOX"/>
+                            <constraint firstItem="w7P-F8-9lC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="asd-Lk-AU0"/>
+                            <constraint firstItem="lLS-sa-Oas" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kxs-JD-cC5"/>
+                            <constraint firstItem="6jT-X2-WEe" firstAttribute="top" secondItem="w7P-F8-9lC" secondAttribute="bottom" constant="30" id="u0g-2T-OP0"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="TKInsertCode" id="Izz-6t-szD"/>
+                    <connections>
+                        <outlet property="firstInsertCodeView" destination="6jT-X2-WEe" id="11H-zH-blx"/>
+                        <outlet property="secondInsertCodeView" destination="1mM-Rv-pWQ" id="XRa-Kk-IJL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="982" y="-561"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Zld-Vo-Iz3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VBV-pm-7GV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tW1-Xs-Lso">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="jbl-GH-FnG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PKs-bP-ibL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="-560.86956521739137"/>
+        </scene>
+    </scenes>
+</document>
