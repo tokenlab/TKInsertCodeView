@@ -23,6 +23,8 @@
 		833C6B231EE0A1CF00D32086 /* TKInsertCodeView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 833C6ACD1EE0A15500D32086 /* TKInsertCodeView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		83A7E6101EE0BC300059483A /* CustomCodeFieldView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83A7E60F1EE0BC300059483A /* CustomCodeFieldView.xib */; };
 		83A7E6121EE0BC410059483A /* CustomCodeFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A7E6111EE0BC410059483A /* CustomCodeFieldView.swift */; };
+		83D9FF161EE0DE7E00E7A5DB /* TKInsertCodeView.swift in Headers */ = {isa = PBXBuildFile; fileRef = 833C6B1C1EE0A19F00D32086 /* TKInsertCodeView.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		83D9FF171EE0DE8C00E7A5DB /* TKCodeFieldView.swift in Headers */ = {isa = PBXBuildFile; fileRef = 833C6B1A1EE0A19F00D32086 /* TKCodeFieldView.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -218,6 +220,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				833C6ADE1EE0A15500D32086 /* TKInsertCodeView.h in Headers */,
+				83D9FF161EE0DE7E00E7A5DB /* TKInsertCodeView.swift in Headers */,
+				83D9FF171EE0DE8C00E7A5DB /* TKCodeFieldView.swift in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
