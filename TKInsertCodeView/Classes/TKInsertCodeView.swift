@@ -41,6 +41,7 @@ public class TKInsertCodeView: UIView {
         }
         set {
             codeTextField.text = newValue
+            codeTextField.sendActions(for: .editingChanged)
         }
     }
     
@@ -58,6 +59,8 @@ public class TKInsertCodeView: UIView {
     @IBInspectable var borderColor: UIColor = #colorLiteral(red: 0.7960784314, green: 0.7960784314, blue: 0.7960784314, alpha: 1)
     @IBInspectable var selecBackgroundColorField: UIColor = #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1)
     @IBInspectable var selecBorderColor: UIColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 0.7714484279)
+    @IBInspectable var invalidBackgroundColorField: UIColor = #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1)
+    @IBInspectable var invalidBorderColor: UIColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
     
     // MARK:- Initialization
     
@@ -71,7 +74,7 @@ public class TKInsertCodeView: UIView {
     }
     
     func loadNib() {
-        if let view = bundle().loadNibNamed("TKInsertCodeView", owner: self)?.first as? UIView {
+        if let view = bundle.loadNibNamed("TKInsertCodeView", owner: self)?.first as? UIView {
             view.frame = bounds
             view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
             view.isUserInteractionEnabled = true
@@ -121,7 +124,9 @@ public class TKInsertCodeView: UIView {
                     backgroundColor: backgroundColorField,
                     borderColor: borderColor.cgColor,
                     selectedBackgroundColor: selecBackgroundColorField,
-                    selectedBorderColor: selecBorderColor.cgColor
+                    selectedBorderColor: selecBorderColor.cgColor,
+                    invalidateBackgroundColor: invalidBackgroundColorField,
+                    invalidateBorderColor: invalidBorderColor.cgColor
                 )
             }
         }
@@ -144,6 +149,31 @@ public class TKInsertCodeView: UIView {
     
     public func setResignFirstResponder() {
         codeTextField.resignFirstResponder()
+    }
+    
+    public func shake() {
+        let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        animation.duration = 0.6
+        animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
+        layer.add(animation, forKey: "shake")
+    }
+    
+    public func validate() {
+        codeStackView.arrangedSubviews.enumerated().forEach { (index, view) in
+            if let codeFieldView = view as? TKCodeFieldViewProtocol {
+                codeFieldView.setValidated(true)
+            }
+        }
+        cofigureSelectedCodeFieldView()
+    }
+    
+    public func invalidate() {
+        codeStackView.arrangedSubviews.enumerated().forEach { (index, view) in
+            if let codeFieldView = view as? TKCodeFieldViewProtocol {
+                codeFieldView.setValidated(false)
+            }
+        }
     }
     
     // MARK:- Private functions
@@ -174,8 +204,11 @@ public class TKInsertCodeView: UIView {
         }
         
         guard let text =  textField.text else { return }
-        if text.characters.count ==  codeStackView.arrangedSubviews.count { delegate?.tkInsertCodeView(self, didFinishWritingCode: text) }
-        delegate?.tkInsertCodeView(self, didChangeCode: text)
+
+        if selectedField != -1 {
+            delegate?.tkInsertCodeView(self, didChangeCode: text)
+        }
+        
         for (index, character) in text.characters.enumerated() {
             guard let view = codeStackView.arrangedSubviews.first(where: { $0.tag == index }), let codeFieldView = view as? TKCodeFieldViewProtocol else { continue }
             codeFieldView.code = secretCode ? "•" : "\(character)"
@@ -184,6 +217,8 @@ public class TKInsertCodeView: UIView {
             guard let view = codeStackView.arrangedSubviews.first(where: { $0.tag == index }), let codeFieldView = view as? TKCodeFieldViewProtocol else { continue }
             codeFieldView.code = ""
         }
+        
+        if text.characters.count == codeStackView.arrangedSubviews.count  { delegate?.tkInsertCodeView(self, didFinishWritingCode: text) }
     }
 }
 

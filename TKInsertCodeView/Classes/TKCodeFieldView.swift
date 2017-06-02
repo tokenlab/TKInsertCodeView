@@ -11,6 +11,7 @@ import UIKit
 public protocol TKCodeFieldViewProtocol: class {
     var code: String? {get set}
     func setSelected(_ selected: Bool)
+    func setValidated(_ validated: Bool)
 }
 
 class TKCodeFieldView: UIView, TKCodeFieldViewProtocol {
@@ -23,6 +24,9 @@ class TKCodeFieldView: UIView, TKCodeFieldViewProtocol {
     fileprivate var definedSelectedBackgroundColor: UIColor!
     fileprivate var definedSelectedBorderColor: CGColor!
     
+    fileprivate var definedInvalidateBackgroundColor: UIColor!
+    fileprivate var definedInvalidateBorderColor: CGColor!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadNib()
@@ -34,7 +38,7 @@ class TKCodeFieldView: UIView, TKCodeFieldViewProtocol {
     }
     
     func loadNib() {
-        if let view = bundle().loadNibNamed("TKCodeFieldView", owner: self)?.first as? UIView {
+        if let view = bundle.loadNibNamed("TKCodeFieldView", owner: self)?.first as? UIView {
             view.frame = bounds
             view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
             view.isUserInteractionEnabled = true
@@ -53,14 +57,17 @@ class TKCodeFieldView: UIView, TKCodeFieldViewProtocol {
                        backgroundColor: UIColor,
                        borderColor: CGColor,
                        selectedBackgroundColor: UIColor,
-                       selectedBorderColor: CGColor) {
+                       selectedBorderColor: CGColor,
+                       invalidateBackgroundColor: UIColor,
+                       invalidateBorderColor: CGColor) {
         
         definedBackgroundColor = backgroundColor
         definedBorderColor = borderColor
-        
         definedSelectedBackgroundColor = selectedBackgroundColor
         definedSelectedBorderColor = selectedBorderColor
         
+        definedInvalidateBackgroundColor = invalidateBackgroundColor
+        definedInvalidateBorderColor = invalidateBorderColor
         codeLabel.textColor = textColor
         codeLabel.font = UIFont(name: fontName, size: fontSize)
         layer.borderWidth = borderWith
@@ -83,6 +90,16 @@ class TKCodeFieldView: UIView, TKCodeFieldViewProtocol {
         } else {
             backgroundColor = definedBackgroundColor
             layer.borderColor = definedBorderColor
+        }
+    }
+    
+    func setValidated(_ validated: Bool) {
+        if validated {
+            backgroundColor = definedBackgroundColor
+            layer.borderColor = definedBorderColor
+        } else {
+            backgroundColor = definedInvalidateBackgroundColor
+            layer.borderColor = definedInvalidateBorderColor
         }
     }
 }

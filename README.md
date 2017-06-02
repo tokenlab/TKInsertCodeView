@@ -22,7 +22,7 @@ To run the example project, clone the repo and open `TKInsertCodeView.xcodeproj`
 TKInsertCodeView is available through Tokenlab's TKPodSpec. To install it, simply add the following lines to your Podfile:
 
 ```ruby
-pod 'TKInsertCodeView', :git => 'https://github.com/tokenlab/TKPodSpecs.git'
+pod 'TKInsertCodeView', :git => 'https://github.com/tokenlab/TKInsertCodeView.git'
 ```
 
 ### Carthage

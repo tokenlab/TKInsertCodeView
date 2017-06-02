@@ -11,7 +11,7 @@
         <!--TKInsertCode-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ExampleViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -24,16 +24,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="az1-48-Dxk">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="282"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="351"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default with secret code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7P-F8-9lC">
-                                                <rect key="frame" x="20" y="30" width="335" height="21"/>
+                                                <rect key="frame" x="20" y="30" width="335" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6jT-X2-WEe" customClass="TKInsertCodeView" customModule="TKInsertCodeView">
-                                                <rect key="frame" x="72.5" y="66" width="230" height="50"/>
+                                                <rect key="frame" x="72.5" y="65.5" width="230" height="50"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="230" id="eMT-yy-0DS"/>
@@ -44,13 +44,13 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom CodeFieldView" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLS-sa-Oas">
-                                                <rect key="frame" x="98.5" y="146" width="178.5" height="21"/>
+                                                <rect key="frame" x="98.5" y="215.5" width="178.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1mM-Rv-pWQ" customClass="TKInsertCodeView" customModule="TKInsertCodeView">
-                                                <rect key="frame" x="52" y="182" width="270" height="50"/>
+                                                <rect key="frame" x="52" y="251" width="270" height="50"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="270" id="VOm-F2-O5J"/>
@@ -71,6 +71,52 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="a6h-1I-7Uc">
+                                                <rect key="frame" x="40.5" y="131" width="294" height="40"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5R-0x-QlS">
+                                                        <rect key="frame" x="0.0" y="0.0" width="66" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="wfv-Xy-9OR"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Shake"/>
+                                                        <connections>
+                                                            <action selector="shakeButtonTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="58T-BK-94N"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y3V-P3-E5Z">
+                                                        <rect key="frame" x="76" y="0.0" width="66" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="i1u-9t-ppI"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Invalidate"/>
+                                                        <connections>
+                                                            <action selector="invalidateButtonTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="I4I-7p-Cpz"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Stl-Fy-FvU">
+                                                        <rect key="frame" x="152" y="0.0" width="66" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="38C-HT-e75"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Validate"/>
+                                                        <connections>
+                                                            <action selector="validateButtonTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="loT-0Y-atc"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRm-yc-aih">
+                                                        <rect key="frame" x="228" y="0.0" width="66" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="YFV-J3-xKq"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Clear"/>
+                                                        <connections>
+                                                            <action selector="clearButtonTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b5k-R4-MhA"/>
+                                                            <action selector="validateButtonTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hlk-1t-NxY"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -79,11 +125,13 @@
                                             <constraint firstItem="w7P-F8-9lC" firstAttribute="leading" secondItem="az1-48-Dxk" secondAttribute="leading" constant="20" id="D4F-kp-9St"/>
                                             <constraint firstItem="6jT-X2-WEe" firstAttribute="centerX" secondItem="az1-48-Dxk" secondAttribute="centerX" id="DWd-O3-Ewd"/>
                                             <constraint firstItem="1mM-Rv-pWQ" firstAttribute="top" secondItem="lLS-sa-Oas" secondAttribute="bottom" constant="15" id="KAN-jl-MpF"/>
+                                            <constraint firstItem="a6h-1I-7Uc" firstAttribute="top" secondItem="6jT-X2-WEe" secondAttribute="bottom" constant="15" id="TXX-pJ-a0S"/>
                                             <constraint firstItem="w7P-F8-9lC" firstAttribute="top" secondItem="az1-48-Dxk" secondAttribute="top" constant="30" id="UD9-5u-zLC"/>
                                             <constraint firstAttribute="bottom" secondItem="1mM-Rv-pWQ" secondAttribute="bottom" constant="50" id="VXJ-MC-Qf4"/>
                                             <constraint firstItem="1mM-Rv-pWQ" firstAttribute="centerX" secondItem="az1-48-Dxk" secondAttribute="centerX" id="VcZ-E9-15L"/>
-                                            <constraint firstItem="lLS-sa-Oas" firstAttribute="top" secondItem="6jT-X2-WEe" secondAttribute="bottom" constant="30" id="mVd-6A-2SA"/>
+                                            <constraint firstItem="lLS-sa-Oas" firstAttribute="top" secondItem="6jT-X2-WEe" secondAttribute="bottom" constant="100" id="mVd-6A-2SA"/>
                                             <constraint firstAttribute="trailing" secondItem="w7P-F8-9lC" secondAttribute="trailing" constant="20" id="pmL-ti-QNO"/>
+                                            <constraint firstItem="a6h-1I-7Uc" firstAttribute="centerX" secondItem="az1-48-Dxk" secondAttribute="centerX" id="zHs-b0-JvM"/>
                                         </constraints>
                                     </view>
                                 </subviews>

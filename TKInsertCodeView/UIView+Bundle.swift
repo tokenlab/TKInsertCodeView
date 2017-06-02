@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIView {
-    func bundle() -> Bundle {
+    var bundle: Bundle {
         // framework bundle
         var bundle = Bundle(for: self.classForCoder)
         if let bundleURL = bundle.url(forResource: "TKInsertCodeView", withExtension: "bundle") {
