@@ -21,6 +21,7 @@
 		833C6B211EE0A19F00D32086 /* TKInsertCodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 833C6B1D1EE0A19F00D32086 /* TKInsertCodeView.xib */; };
 		833C6B221EE0A1CF00D32086 /* TKInsertCodeView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833C6ACD1EE0A15500D32086 /* TKInsertCodeView.framework */; };
 		833C6B231EE0A1CF00D32086 /* TKInsertCodeView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 833C6ACD1EE0A15500D32086 /* TKInsertCodeView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		83649D241EE20D6C009385F0 /* UIView+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83649D231EE20D6C009385F0 /* UIView+Bundle.swift */; };
 		83A7E6101EE0BC300059483A /* CustomCodeFieldView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83A7E60F1EE0BC300059483A /* CustomCodeFieldView.xib */; };
 		83A7E6121EE0BC410059483A /* CustomCodeFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A7E6111EE0BC410059483A /* CustomCodeFieldView.swift */; };
 		83F33F361EE1E332002F0CF5 /* TKInsertCodeView.xib in Sources */ = {isa = PBXBuildFile; fileRef = 833C6B1D1EE0A19F00D32086 /* TKInsertCodeView.xib */; };
@@ -92,6 +93,7 @@
 		833C6B1B1EE0A19F00D32086 /* TKCodeFieldView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TKCodeFieldView.xib; path = Classes/TKCodeFieldView.xib; sourceTree = "<group>"; };
 		833C6B1C1EE0A19F00D32086 /* TKInsertCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TKInsertCodeView.swift; path = Classes/TKInsertCodeView.swift; sourceTree = "<group>"; };
 		833C6B1D1EE0A19F00D32086 /* TKInsertCodeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TKInsertCodeView.xib; path = Classes/TKInsertCodeView.xib; sourceTree = "<group>"; };
+		83649D231EE20D6C009385F0 /* UIView+Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Bundle.swift"; sourceTree = "<group>"; };
 		83A7E60F1EE0BC300059483A /* CustomCodeFieldView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCodeFieldView.xib; sourceTree = "<group>"; };
 		83A7E6111EE0BC410059483A /* CustomCodeFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCodeFieldView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -199,6 +201,7 @@
 				833C6B1D1EE0A19F00D32086 /* TKInsertCodeView.xib */,
 				833C6B1A1EE0A19F00D32086 /* TKCodeFieldView.swift */,
 				833C6B1B1EE0A19F00D32086 /* TKCodeFieldView.xib */,
+				83649D231EE20D6C009385F0 /* UIView+Bundle.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 				83F33F361EE1E332002F0CF5 /* TKInsertCodeView.xib in Sources */,
 				83F33F371EE1E332002F0CF5 /* TKCodeFieldView.xib in Sources */,
 				833C6B1E1EE0A19F00D32086 /* TKCodeFieldView.swift in Sources */,
+				83649D241EE20D6C009385F0 /* UIView+Bundle.swift in Sources */,
 				833C6B201EE0A19F00D32086 /* TKInsertCodeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

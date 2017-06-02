@@ -34,22 +34,14 @@ class TKCodeFieldView: UIView, TKCodeFieldViewProtocol {
     }
     
     func loadNib() {
-        let podBundle = Bundle(for: self.classForCoder)
-        if let bundleURL = podBundle.url(forResource: "TKInsertCodeView", withExtension: "bundle") {
-            if let bundle = Bundle(url: bundleURL) {
-                let nib = UINib(nibName: "TKCodeFieldView", bundle: bundle)
-                if let view = nib.instantiate(withOwner: self, options: nil).first as? UIView  {
-                    view.frame = bounds
-                    view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-                    view.isUserInteractionEnabled = true
-                    addSubview(view)
-                    clipsToBounds = true
-                }
-            } else {
-                assertionFailure("Could not load the bundle")
-            }
+        if let view = bundle().loadNibNamed("TKCodeFieldView", owner: self)?.first as? UIView {
+            view.frame = bounds
+            view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+            view.isUserInteractionEnabled = true
+            addSubview(view)
+            clipsToBounds = true
         } else {
-            assertionFailure("Could not create a path to the bundle")
+            assertionFailure("Could not load nib TKCodeFieldView. ")
         }
     }
     
@@ -94,3 +86,4 @@ class TKCodeFieldView: UIView, TKCodeFieldViewProtocol {
         }
     }
 }
+

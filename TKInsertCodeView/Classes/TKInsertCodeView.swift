@@ -71,25 +71,16 @@ public class TKInsertCodeView: UIView {
     }
     
     func loadNib() {
-        let podBundle = Bundle(for: self.classForCoder)
-        if let bundleURL = podBundle.url(forResource: "TKInsertCodeView", withExtension: "bundle") {
-            if let bundle = Bundle(url: bundleURL) {
-                let nib = UINib(nibName: "TKInsertCodeView", bundle: bundle)
-                if let view = nib.instantiate(withOwner: self, options: nil).first as? UIView  {
-                    
-                    view.frame = bounds
-                    view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-                    view.isUserInteractionEnabled = true
-                    addSubview(view)
-                    
-                    codeTextField.delegate = self
-                    codeTextField.addTarget(self, action: #selector(codeFieldDidChange(_:)), for: .editingChanged)
-                }
-            } else {
-                assertionFailure("Could not load the bundle")
-            }
+        if let view = bundle().loadNibNamed("TKInsertCodeView", owner: self)?.first as? UIView {
+            view.frame = bounds
+            view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+            view.isUserInteractionEnabled = true
+            addSubview(view)
+            
+            codeTextField.delegate = self
+            codeTextField.addTarget(self, action: #selector(codeFieldDidChange(_:)), for: .editingChanged)
         } else {
-            assertionFailure("Could not create a path to the bundle")
+            assertionFailure("Could not load nib TKInsertCodeView. ")
         }
     }
     
