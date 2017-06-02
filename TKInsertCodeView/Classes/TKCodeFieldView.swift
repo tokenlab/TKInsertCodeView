@@ -14,15 +14,15 @@ public protocol TKCodeFieldViewProtocol: class {
 }
 
 class TKCodeFieldView: UIView, TKCodeFieldViewProtocol {
-
+    
     @IBOutlet weak var codeLabel: UILabel!
     
     fileprivate var definedBackgroundColor: UIColor!
     fileprivate var definedBorderColor: CGColor!
-
+    
     fileprivate var definedSelectedBackgroundColor: UIColor!
     fileprivate var definedSelectedBorderColor: CGColor!
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadNib()
@@ -34,16 +34,23 @@ class TKCodeFieldView: UIView, TKCodeFieldViewProtocol {
     }
     
     func loadNib() {
-        let frameworkBundle = Bundle(identifier: "br.com.tokenlab.TKInsertCodeView")
-        guard let nib = frameworkBundle?.loadNibNamed("TKCodeFieldView", owner: self)?.first as? UIView else {
-                return
+        let podBundle = Bundle(for: self.classForCoder)
+        if let bundleURL = podBundle.url(forResource: "TKInsertCodeView", withExtension: "bundle") {
+            if let bundle = Bundle(url: bundleURL) {
+                let nib = UINib(nibName: "TKCodeFieldView", bundle: bundle)
+                if let view = nib.instantiate(withOwner: self, options: nil).first as? UIView  {
+                    view.frame = bounds
+                    view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+                    view.isUserInteractionEnabled = true
+                    addSubview(view)
+                    clipsToBounds = true
+                }
+            } else {
+                assertionFailure("Could not load the bundle")
+            }
+        } else {
+            assertionFailure("Could not create a path to the bundle")
         }
-        nib.frame = bounds
-        nib.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        nib.isUserInteractionEnabled = true
-        addSubview(nib)
-        
-        clipsToBounds = true
     }
     
     func setAppearance(cornerRadius: CGFloat,

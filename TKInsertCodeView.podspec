@@ -10,6 +10,6 @@ Pod::Spec.new do |s|
   s.source = { :git => 'https://github.com/tokenlab/TKInsertCodeView.git', :tag => s.version.to_s }
   s.source_files = "TKInsertCodeView/**/*.{h,swift}"
   s.resource_bundles = {
-  "TKInsertCodeView" => ["TKInsertCodeView/Classes/*.{xib}"]
+  'TKInsertCodeView' => ['TKInsertCodeView/Classes/**/*.{storyboard,xib}']
   }
 end
