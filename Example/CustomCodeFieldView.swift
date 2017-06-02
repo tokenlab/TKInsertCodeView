@@ -11,7 +11,8 @@ import TKInsertCodeView
 
 class CustomCodeFieldView: UIView, TKCodeFieldViewProtocol {
     
-    @IBOutlet weak var codeTextField: UITextField!
+    @IBOutlet weak var codeLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -38,14 +39,18 @@ class CustomCodeFieldView: UIView, TKCodeFieldViewProtocol {
     
     var code: String? {
         get {
-            return codeTextField.text
+            return codeLabel.text
         }
         set {
-            codeTextField.text = newValue
+            codeLabel.text = newValue
         }
     }
     
     func setSelected(_ selected: Bool) {
-        // customize
+        if selected {
+            imageView.image = UIImage(named: "icSelectedHeart")
+        } else {
+            imageView.image = UIImage(named: "icHeart")
+        }
     }
 }

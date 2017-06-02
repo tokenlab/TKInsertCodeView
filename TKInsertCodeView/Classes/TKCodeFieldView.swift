@@ -17,8 +17,11 @@ class TKCodeFieldView: UIView, TKCodeFieldViewProtocol {
 
     @IBOutlet weak var codeLabel: UILabel!
     
-    fileprivate var borderColor: CGColor!
-    fileprivate var selectedBorderColor: CGColor!
+    fileprivate var definedBackgroundColor: UIColor!
+    fileprivate var definedBorderColor: CGColor!
+
+    fileprivate var definedSelectedBackgroundColor: UIColor!
+    fileprivate var definedSelectedBorderColor: CGColor!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,12 +45,26 @@ class TKCodeFieldView: UIView, TKCodeFieldViewProtocol {
         clipsToBounds = true
     }
     
-    func setAppearance(borderWith: CGFloat, borderColor: CGColor, selectedBorderColor: CGColor, cornerRadius: CGFloat, selected: Bool) {
-        self.borderColor = borderColor
-        self.selectedBorderColor = selectedBorderColor
+    func setAppearance(cornerRadius: CGFloat,
+                       borderWith: CGFloat,
+                       fontName: String,
+                       fontSize: CGFloat,
+                       textColor: UIColor,
+                       backgroundColor: UIColor,
+                       borderColor: CGColor,
+                       selectedBackgroundColor: UIColor,
+                       selectedBorderColor: CGColor) {
+        
+        definedBackgroundColor = backgroundColor
+        definedBorderColor = borderColor
+        
+        definedSelectedBackgroundColor = selectedBackgroundColor
+        definedSelectedBorderColor = selectedBorderColor
+        
+        codeLabel.textColor = textColor
+        codeLabel.font = UIFont(name: fontName, size: fontSize)
         layer.borderWidth = borderWith
         layer.cornerRadius = cornerRadius
-        setSelected(selected)
     }
     
     var code: String? {
@@ -61,9 +78,11 @@ class TKCodeFieldView: UIView, TKCodeFieldViewProtocol {
     
     func setSelected(_ selected: Bool) {
         if selected {
-            layer.borderColor = selectedBorderColor
+            backgroundColor = definedSelectedBackgroundColor
+            layer.borderColor = definedSelectedBorderColor
         } else {
-            layer.borderColor = borderColor
+            backgroundColor = definedBackgroundColor
+            layer.borderColor = definedBorderColor
         }
     }
 }

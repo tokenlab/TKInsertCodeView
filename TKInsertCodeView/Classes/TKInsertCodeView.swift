@@ -23,11 +23,16 @@ public class TKInsertCodeView: UIView {
     @IBOutlet weak var codeTextField: UITextField!
     @IBOutlet weak var codeStackView: UIStackView!
 
-    var selectedField: Int = 0
     public var delegate: TKInsertCodeViewDelegate?
     public var codeFieldView: (() -> TKCodeFieldViewProtocol) = TKCodeFieldView.init {
         didSet {
             configureCodeViews()
+        }
+    }
+    
+    var selectedField: Int = -1 {
+        didSet {
+            cofigureSelectedCodeFieldView()
         }
     }
     
@@ -47,7 +52,7 @@ public class TKInsertCodeView: UIView {
         }
     }
     
-    @IBInspectable var fieldBackgroundColor: UIColor = #colorLiteral(red: 0.9436354041, green: 0.9436575174, blue: 0.9436456561, alpha: 1) {
+    @IBInspectable var cornerRadius: CGFloat = 7.0 {
         didSet {
             configureCodeViewsAppearance()
         }
@@ -59,24 +64,48 @@ public class TKInsertCodeView: UIView {
         }
     }
     
-    @IBInspectable var borderColor: UIColor = .lightGray {
+    @IBInspectable var fontName: String = "Helvetica" {
         didSet {
             configureCodeViewsAppearance()
         }
     }
     
-    @IBInspectable var selectedBorderColor: UIColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1) {
+    @IBInspectable var fontSize: CGFloat = 17.0 {
+        didSet {
+            configureCodeViewsAppearance()
+        }
+    }
+    
+    @IBInspectable var textColor: UIColor = #colorLiteral(red: 0.4078431373, green: 0.4078431373, blue: 0.4078431373, alpha: 1) {
+        didSet {
+            configureCodeViewsAppearance()
+        }
+    }
+    
+    @IBInspectable var backgroundColorField: UIColor = #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1) {
+        didSet {
+            configureCodeViewsAppearance()
+        }
+    }
+    
+    @IBInspectable var borderColor: UIColor = #colorLiteral(red: 0.7960784314, green: 0.7960784314, blue: 0.7960784314, alpha: 1) {
+        didSet {
+            configureCodeViewsAppearance()
+        }
+    }
+    
+    @IBInspectable var selecBackgroundColorField: UIColor = #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1) {
+        didSet {
+            configureCodeViewsAppearance()
+        }
+    }
+    
+    @IBInspectable var selecBorderColor: UIColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 0.7714484279) {
         didSet {
             configureCodeViewsAppearance()
         }
     }
 
-    @IBInspectable var cornerRadius: CGFloat = 10.0 {
-        didSet {
-            configureCodeViewsAppearance()
-        }
-    }
-    
     // MARK:- Initialization
     
     override init(frame: CGRect) {
@@ -107,8 +136,13 @@ public class TKInsertCodeView: UIView {
 
     // MARK:- Public functions
 
-    public func setFirstResponder() {
+    public func setBecomeFirstResponder() {
+        selectedField = 0
         codeTextField.becomeFirstResponder()
+    }
+    
+    public func setResignFirstResponder() {
+        codeTextField.resignFirstResponder()
     }
     
     // MARK:- Private functions
@@ -133,12 +167,24 @@ public class TKInsertCodeView: UIView {
         codeStackView.arrangedSubviews.enumerated().forEach { (index, view) in
             if let codeFieldView = view as? TKCodeFieldView {
                 codeFieldView.setAppearance(
-                    borderWith: borderWidth,
-                    borderColor: borderColor.cgColor,
-                    selectedBorderColor: selectedBorderColor.cgColor,
                     cornerRadius: cornerRadius,
-                    selected: index == selectedField
+                    borderWith: borderWidth,
+                    fontName: fontName,
+                    fontSize: fontSize,
+                    textColor: textColor,
+                    backgroundColor: backgroundColorField,
+                    borderColor: borderColor.cgColor,
+                    selectedBackgroundColor: selecBackgroundColorField,
+                    selectedBorderColor: selecBorderColor.cgColor
                 )
+            }
+        }
+    }
+    
+    fileprivate func cofigureSelectedCodeFieldView() {
+        codeStackView.arrangedSubviews.enumerated().forEach { (index, view) in
+            if let codeFieldView = view as? TKCodeFieldViewProtocol {
+                codeFieldView.setSelected(index == selectedField)
             }
         }
     }
@@ -160,16 +206,7 @@ public class TKInsertCodeView: UIView {
             codeTextField.selectedTextRange = codeTextField.textRange(from: codeTextField.endOfDocument, to: codeTextField.endOfDocument)
             selectedPosition = codeTextField.offset(from: codeTextField.beginningOfDocument, to: codeTextField.endOfDocument)
         }
-        selectField(selectedPosition)
-    }
-    
-    fileprivate func selectField(_ position: Int) {
-        if let previouslySelected = codeStackView.arrangedSubviews.first(where: { $0.tag == selectedField }), let codeFieldView = previouslySelected as? TKCodeFieldViewProtocol {
-            codeFieldView.setSelected(false)
-        }
-        guard let newlySelectedField = codeStackView.arrangedSubviews.first(where: { $0.tag == position }), let codeFieldView = newlySelectedField as? TKCodeFieldViewProtocol else { return }
-        codeFieldView.setSelected(true)
-        selectedField = position
+        selectedField = selectedPosition
     }
     
     func codeFieldDidChange(_ textField: UITextField) {
@@ -202,5 +239,10 @@ extension TKInsertCodeView: UITextFieldDelegate {
             return false
         }
         return true
+    }
+    
+    public func textFieldDidEndEditing(_ textField: UITextField) {
+        endEditing(true)
+        selectedField = -1
     }
 }

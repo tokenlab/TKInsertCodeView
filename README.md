@@ -43,9 +43,10 @@ You may easily customize through Interface Builder:
 |`secretCode`| `Bool`|false| Hide/show inserted code|
 |`numberOfFields`|`Int`| 4| Number of code fields|
 |`spacing`| `CGFloat`|10| Space between code fields|
+|`backgroundFieldColor`| `UIColor`|#F1F1F1 (gray)| Code field background color|
 |`borderWidth`| `CGFloat`|10| Code field border width|
-|`borderColor`| `UIColor`|.lightGray| Code field border color|
-|`selectedBorderColor`| `CGFloat`|blue| Selected code field border color|
+|`borderColor`| `UIColor`|#CBCBCB (gray)| Code field border color|
+|`selectedBorderColor`| `CGFloat`|#007AFF (blue)| Selected code field border color|
 |`cornerRadius`| `CGFloat`|7.0| Code field border|
 
 ### Customize CodeFieldView
@@ -62,11 +63,17 @@ protocol TKCodeFieldViewProtocol: class {
 To apply your customized view:
 
 ```swift
-inserCodeView.codeFieldView = CustomCodeFieldView.init
+insertCodeView.codeFieldView = CustomCodeFieldView.init
 ```
 
-### To keyboard up
+## Keyboard
 
+* To programmatically keyboard up:
 ```swift
-inserCodeView.setFirstResponder()
+insertCodeView.setBecomeFirstResponder()
+```
+
+* To programmatically keyboard down:
+```swift
+insertCodeView.setResignFirstResponder()
 ```
