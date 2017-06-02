@@ -16,8 +16,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        firstInsertCodeView.setFirstResponder()
-        
+
+        firstInsertCodeView.setBecomeFirstResponder()
         secondInsertCodeView.codeFieldView = CustomCodeFieldView.init
     }
 }

@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhoneVerificationCodeFieldView" customModule="TKInsertCodeView" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner">
             <connections>
                 <outlet property="codeLabel" destination="cmT-xi-ID9" id="zc4-AT-QV4"/>
             </connections>
@@ -26,7 +26,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="cmT-xi-ID9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="epf-4y-uii"/>
                 <constraint firstAttribute="bottom" secondItem="cmT-xi-ID9" secondAttribute="bottom" id="f1L-YU-TNX"/>

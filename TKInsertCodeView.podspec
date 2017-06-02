@@ -9,4 +9,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '9.0'
   s.source = { :git => 'https://github.com/tokenlab/TKInsertCodeView.git', :tag => s.version.to_s }
   s.source_files = "TKInsertCodeView/**/*.{h,swift}"
+  s.resource_bundles = {
+  "TKInsertCodeView" => ["TKInsertCodeView/Classes/*.{xib}"]
+  }
 end
