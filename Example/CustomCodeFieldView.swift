@@ -53,4 +53,6 @@ class CustomCodeFieldView: UIView, TKCodeFieldViewProtocol {
             imageView.image = UIImage(named: "icHeart")
         }
     }
+    
+    func setValidated(_ validated: Bool) {}
 }
