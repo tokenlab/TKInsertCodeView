@@ -22,7 +22,7 @@ To run the example project, clone the repo and open `TKInsertCodeView.xcodeproj`
 TKInsertCodeView is available through Tokenlab's TKPodSpec. To install it, simply add the following lines to your Podfile:
 
 ```ruby
-pod 'TKInsertCodeView', :git => 'https://github.com/tokenlab/TKPodSpecs.git'
+pod 'TKInsertCodeView', :git => 'https://github.com/tokenlab/TKInsertCodeView.git'
 ```
 
 ### Carthage
@@ -43,11 +43,15 @@ You may easily customize through Interface Builder:
 |`secretCode`| `Bool`|false| Hide/show inserted code|
 |`numberOfFields`|`Int`| 4| Number of code fields|
 |`spacing`| `CGFloat`|10| Space between code fields|
-|`backgroundFieldColor`| `UIColor`|#F1F1F1 (gray)| Code field background color|
-|`borderWidth`| `CGFloat`|10| Code field border width|
-|`borderColor`| `UIColor`|#CBCBCB (gray)| Code field border color|
-|`selectedBorderColor`| `CGFloat`|#007AFF (blue)| Selected code field border color|
 |`cornerRadius`| `CGFloat`|7.0| Code field border|
+|`borderWidth`| `CGFloat`|10| Code field border width|
+|`fontName`| `String`|Helvetica| Code font|
+|`fontSize`| `CGFloat`|17| Code font size|
+|`textColor`| `UIColor`|#686868 (gray)| Code text color|
+|`backgroundFieldColor`| `UIColor`|#F1F1F1 (gray)| Code field background color|
+|`borderColor`| `UIColor`|#CBCBCB (gray)| Code field border color|
+|`selecBackgroundColorField`| `UIColor`|#F1F1F1 (gray)| Selected code field background color|
+|`selecBorderColor`| `CGFloat`|#007AFF (blue)| Selected code field border color|
 
 ### Customize CodeFieldView
 

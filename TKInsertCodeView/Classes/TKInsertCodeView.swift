@@ -9,20 +9,19 @@
 import UIKit
 
 public protocol TKInsertCodeViewDelegate {
-    func didChangeCode(_ code: String)
-    func didFinishWritingCode(_ code: String)
+    func tkInsertCodeView(_ tkInsertCodeView: TKInsertCodeView, didChangeCode code: String)
+    func tkInsertCodeView(_ tkInsertCodeView: TKInsertCodeView, didFinishWritingCode code: String)
 }
 
-extension TKInsertCodeViewDelegate {
-    func didChangeCode(_ code: String) {}
-    func didFinishWritingCode(_ code: String) {}
+public extension TKInsertCodeViewDelegate {
+    public func tkInsertCodeView(_ tkInsertCodeView: TKInsertCodeView, didChangeCode code: String) {}
+    public func tkInsertCodeView(_ tkInsertCodeView: TKInsertCodeView, didFinishWritingCode code: String) {}
 }
 
-@IBDesignable
 public class TKInsertCodeView: UIView {
     @IBOutlet weak var codeTextField: UITextField!
     @IBOutlet weak var codeStackView: UIStackView!
-
+    
     public var delegate: TKInsertCodeViewDelegate?
     public var codeFieldView: (() -> TKCodeFieldViewProtocol) = TKCodeFieldView.init {
         didSet {
@@ -36,81 +35,37 @@ public class TKInsertCodeView: UIView {
         }
     }
     
+    public var code: String? {
+        get {
+            return codeTextField.text
+        }
+        set {
+            codeTextField.text = newValue
+            codeTextField.sendActions(for: .editingChanged)
+        }
+    }
+    
     // MARK:- IBInspectables
     
     @IBInspectable var secretCode: Bool = false
+    @IBInspectable var numberOfFields: Int = 4
+    @IBInspectable var spacing: CGFloat = 10.0
+    @IBInspectable var cornerRadius: CGFloat = 7.0
+    @IBInspectable var borderWidth: CGFloat = 1.0
+    @IBInspectable var fontName: String = "Helvetica"
+    @IBInspectable var fontSize: CGFloat = 17.0
+    @IBInspectable var textColor: UIColor = #colorLiteral(red: 0.4078431373, green: 0.4078431373, blue: 0.4078431373, alpha: 1)
+    @IBInspectable var backgroundColorField: UIColor = #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1)
+    @IBInspectable var borderColor: UIColor = #colorLiteral(red: 0.7960784314, green: 0.7960784314, blue: 0.7960784314, alpha: 1)
+    @IBInspectable var selecBackgroundColorField: UIColor = #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1)
+    @IBInspectable var selecBorderColor: UIColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 0.7714484279)
+    @IBInspectable var invalidBackgroundColorField: UIColor = #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1)
+    @IBInspectable var invalidBorderColor: UIColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
     
-    @IBInspectable var numberOfFields: Int = 4 {
-        didSet {
-            configureCodeViews()
-        }
-    }
-    
-    @IBInspectable var spacing: CGFloat = 10.0 {
-        didSet {
-            codeStackView.spacing = spacing
-        }
-    }
-    
-    @IBInspectable var cornerRadius: CGFloat = 7.0 {
-        didSet {
-            configureCodeViewsAppearance()
-        }
-    }
-    
-    @IBInspectable var borderWidth: CGFloat = 1.0 {
-        didSet {
-            configureCodeViewsAppearance()
-        }
-    }
-    
-    @IBInspectable var fontName: String = "Helvetica" {
-        didSet {
-            configureCodeViewsAppearance()
-        }
-    }
-    
-    @IBInspectable var fontSize: CGFloat = 17.0 {
-        didSet {
-            configureCodeViewsAppearance()
-        }
-    }
-    
-    @IBInspectable var textColor: UIColor = #colorLiteral(red: 0.4078431373, green: 0.4078431373, blue: 0.4078431373, alpha: 1) {
-        didSet {
-            configureCodeViewsAppearance()
-        }
-    }
-    
-    @IBInspectable var backgroundColorField: UIColor = #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1) {
-        didSet {
-            configureCodeViewsAppearance()
-        }
-    }
-    
-    @IBInspectable var borderColor: UIColor = #colorLiteral(red: 0.7960784314, green: 0.7960784314, blue: 0.7960784314, alpha: 1) {
-        didSet {
-            configureCodeViewsAppearance()
-        }
-    }
-    
-    @IBInspectable var selecBackgroundColorField: UIColor = #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1) {
-        didSet {
-            configureCodeViewsAppearance()
-        }
-    }
-    
-    @IBInspectable var selecBorderColor: UIColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 0.7714484279) {
-        didSet {
-            configureCodeViewsAppearance()
-        }
-    }
-
     // MARK:- Initialization
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        loadNib()
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -119,33 +74,27 @@ public class TKInsertCodeView: UIView {
     }
     
     func loadNib() {
-        guard let nib = Bundle(for: TKInsertCodeView.self).loadNibNamed("TKInsertCodeView", owner: self)?[0] as? UIView  else {
-            return
+        if let view = bundle.loadNibNamed("TKInsertCodeView", owner: self)?.first as? UIView {
+            view.frame = bounds
+            view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+            view.isUserInteractionEnabled = true
+            addSubview(view)
+            
+            codeTextField.delegate = self
+            codeTextField.addTarget(self, action: #selector(codeFieldDidChange(_:)), for: .editingChanged)
+        } else {
+            assertionFailure("Could not load nib TKInsertCodeView. ")
         }
-        nib.frame = bounds
-        nib.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        nib.isUserInteractionEnabled = true
-        addSubview(nib)
-        
-        // Customization
-        codeTextField.delegate = self
-        codeTextField.addTarget(self, action: #selector(codeFieldDidChange(_:)), for: .editingChanged)
+    }
+    
+    public override func awakeFromNib() {
+        super.awakeFromNib()
         configureCodeViews()
         configureCodeViewsAppearance()
-    }
-
-    // MARK:- Public functions
-
-    public func setBecomeFirstResponder() {
-        selectedField = 0
-        codeTextField.becomeFirstResponder()
+        cofigureSelectedCodeFieldView()
     }
     
-    public func setResignFirstResponder() {
-        codeTextField.resignFirstResponder()
-    }
-    
-    // MARK:- Private functions
+    // MARK:- Configurations
     
     fileprivate func configureCodeViews() {
         // Clear stack view
@@ -175,7 +124,9 @@ public class TKInsertCodeView: UIView {
                     backgroundColor: backgroundColorField,
                     borderColor: borderColor.cgColor,
                     selectedBackgroundColor: selecBackgroundColorField,
-                    selectedBorderColor: selecBorderColor.cgColor
+                    selectedBorderColor: selecBorderColor.cgColor,
+                    invalidateBackgroundColor: invalidBackgroundColorField,
+                    invalidateBorderColor: invalidBorderColor.cgColor
                 )
             }
         }
@@ -188,6 +139,44 @@ public class TKInsertCodeView: UIView {
             }
         }
     }
+    
+    // MARK:- Public functions
+    
+    public func setBecomeFirstResponder() {
+        selectedField = 0
+        codeTextField.becomeFirstResponder()
+    }
+    
+    public func setResignFirstResponder() {
+        codeTextField.resignFirstResponder()
+    }
+    
+    public func shake() {
+        let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        animation.duration = 0.6
+        animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
+        layer.add(animation, forKey: "shake")
+    }
+    
+    public func validate() {
+        codeStackView.arrangedSubviews.enumerated().forEach { (index, view) in
+            if let codeFieldView = view as? TKCodeFieldViewProtocol {
+                codeFieldView.setValidated(true)
+            }
+        }
+        cofigureSelectedCodeFieldView()
+    }
+    
+    public func invalidate() {
+        codeStackView.arrangedSubviews.enumerated().forEach { (index, view) in
+            if let codeFieldView = view as? TKCodeFieldViewProtocol {
+                codeFieldView.setValidated(false)
+            }
+        }
+    }
+    
+    // MARK:- Private functions
     
     func didTapOnDigitView(_ sender: UITapGestureRecognizer) {
         guard let view = sender.view else { return }
@@ -215,8 +204,11 @@ public class TKInsertCodeView: UIView {
         }
         
         guard let text =  textField.text else { return }
-        if text.characters.count ==  codeStackView.arrangedSubviews.count { delegate?.didFinishWritingCode(text) }
-        delegate?.didChangeCode(text)
+
+        if selectedField != -1 {
+            delegate?.tkInsertCodeView(self, didChangeCode: text)
+        }
+        
         for (index, character) in text.characters.enumerated() {
             guard let view = codeStackView.arrangedSubviews.first(where: { $0.tag == index }), let codeFieldView = view as? TKCodeFieldViewProtocol else { continue }
             codeFieldView.code = secretCode ? "•" : "\(character)"
@@ -225,13 +217,14 @@ public class TKInsertCodeView: UIView {
             guard let view = codeStackView.arrangedSubviews.first(where: { $0.tag == index }), let codeFieldView = view as? TKCodeFieldViewProtocol else { continue }
             codeFieldView.code = ""
         }
+        
+        if text.characters.count == codeStackView.arrangedSubviews.count  { delegate?.tkInsertCodeView(self, didFinishWritingCode: text) }
     }
 }
 
 extension TKInsertCodeView: UITextFieldDelegate {
     
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
         if range.location == codeStackView.arrangedSubviews.count { return false }
         if let text = textField.text,
             range.length == 0,
@@ -242,7 +235,6 @@ extension TKInsertCodeView: UITextFieldDelegate {
     }
     
     public func textFieldDidEndEditing(_ textField: UITextField) {
-        endEditing(true)
         selectedField = -1
     }
 }

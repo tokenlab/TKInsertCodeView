@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhoneVerificationCodeField" customModule="TKInsertCode" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TKInsertCodeView" customModule="TKInsertCodeView" customModuleProvider="target">
             <connections>
-                <outlet property="codeStackView" destination="E0D-zq-76v" id="oWj-uq-qKr"/>
-                <outlet property="codeTextField" destination="myI-Nw-6fy" id="2Cr-PC-oth"/>
+                <outlet property="codeStackView" destination="E0D-zq-76v" id="xk0-k6-7ib"/>
+                <outlet property="codeTextField" destination="myI-Nw-6fy" id="hfz-hQ-izo"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
