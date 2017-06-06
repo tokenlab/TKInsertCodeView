@@ -47,20 +47,20 @@ public class TKInsertCodeView: UIView {
     
     // MARK:- IBInspectables
     
-    @IBInspectable var secretCode: Bool = false
-    @IBInspectable var numberOfFields: Int = 4
-    @IBInspectable var spacing: CGFloat = 10.0
-    @IBInspectable var cornerRadius: CGFloat = 7.0
-    @IBInspectable var borderWidth: CGFloat = 1.0
-    @IBInspectable var fontName: String = "Helvetica"
-    @IBInspectable var fontSize: CGFloat = 17.0
-    @IBInspectable var textColor: UIColor = #colorLiteral(red: 0.4078431373, green: 0.4078431373, blue: 0.4078431373, alpha: 1)
-    @IBInspectable var backgroundColorField: UIColor = #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1)
-    @IBInspectable var borderColor: UIColor = #colorLiteral(red: 0.7960784314, green: 0.7960784314, blue: 0.7960784314, alpha: 1)
-    @IBInspectable var selecBackgroundColorField: UIColor = #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1)
-    @IBInspectable var selecBorderColor: UIColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 0.7714484279)
-    @IBInspectable var invalidBackgroundColorField: UIColor = #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1)
-    @IBInspectable var invalidBorderColor: UIColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+    @IBInspectable public var secretCode: Bool = false
+    @IBInspectable public var numberOfFields: Int = 4
+    @IBInspectable public var spacing: CGFloat = 10.0
+    @IBInspectable public var cornerRadius: CGFloat = 7.0
+    @IBInspectable public var borderWidth: CGFloat = 1.0
+    @IBInspectable public var fontName: String = "Helvetica"
+    @IBInspectable public var fontSize: CGFloat = 17.0
+    @IBInspectable public var textColor: UIColor = #colorLiteral(red: 0.4078431373, green: 0.4078431373, blue: 0.4078431373, alpha: 1)
+    @IBInspectable public var backgroundColorField: UIColor = #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1)
+    @IBInspectable public var borderColor: UIColor = #colorLiteral(red: 0.7960784314, green: 0.7960784314, blue: 0.7960784314, alpha: 1)
+    @IBInspectable public var selecBackgroundColorField: UIColor = #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1)
+    @IBInspectable public var selecBorderColor: UIColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 0.7714484279)
+    @IBInspectable public var invalidBackgroundColorField: UIColor = #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1)
+    @IBInspectable public var invalidBorderColor: UIColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
     
     // MARK:- Initialization
     
@@ -97,6 +97,8 @@ public class TKInsertCodeView: UIView {
     // MARK:- Configurations
     
     fileprivate func configureCodeViews() {
+        codeStackView.spacing = spacing
+        
         // Clear stack view
         codeStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
         
