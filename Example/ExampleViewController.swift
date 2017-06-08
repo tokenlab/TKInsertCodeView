@@ -9,7 +9,7 @@
 import UIKit
 import TKInsertCodeView
 
-class ViewController: UIViewController {
+class ExampleViewController: UIViewController {
 
     @IBOutlet weak var firstInsertCodeView: TKInsertCodeView!
     @IBOutlet weak var secondInsertCodeView: TKInsertCodeView!
@@ -19,6 +19,22 @@ class ViewController: UIViewController {
 
         firstInsertCodeView.setBecomeFirstResponder()
         secondInsertCodeView.codeFieldView = CustomCodeFieldView.init
+    }
+    
+    @IBAction func shakeButtonTouchUpInside(_ sender: Any) {
+        firstInsertCodeView.shake()
+    }
+    
+    @IBAction func invalidateButtonTouchUpInside(_ sender: Any) {
+        firstInsertCodeView.invalidate()
+    }
+    
+    @IBAction func validateButtonTouchUpInside(_ sender: Any) {
+        firstInsertCodeView.validate()
+    }
+    
+    @IBAction func clearButtonTouchUpInside(_ sender: Any) {
+        firstInsertCodeView.code = ""
     }
 }
 

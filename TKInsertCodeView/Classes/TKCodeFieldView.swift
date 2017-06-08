@@ -11,15 +11,22 @@ import UIKit
 public protocol TKCodeFieldViewProtocol: class {
     var code: String? {get set}
     func setSelected(_ selected: Bool)
+    func setValidated(_ validated: Bool)
 }
 
 class TKCodeFieldView: UIView, TKCodeFieldViewProtocol {
-
+    
     @IBOutlet weak var codeLabel: UILabel!
     
-    fileprivate var borderColor: CGColor!
-    fileprivate var selectedBorderColor: CGColor!
-
+    fileprivate var definedBackgroundColor: UIColor!
+    fileprivate var definedBorderColor: CGColor!
+    
+    fileprivate var definedSelectedBackgroundColor: UIColor!
+    fileprivate var definedSelectedBorderColor: CGColor!
+    
+    fileprivate var definedInvalidateBackgroundColor: UIColor!
+    fileprivate var definedInvalidateBorderColor: CGColor!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadNib()
@@ -31,23 +38,40 @@ class TKCodeFieldView: UIView, TKCodeFieldViewProtocol {
     }
     
     func loadNib() {
-        guard let nib = Bundle(for: TKCodeFieldView.self).loadNibNamed("TKCodeFieldView", owner: self)?[0] as? UIView else {
-            return
+        if let view = bundle.loadNibNamed("TKCodeFieldView", owner: self)?.first as? UIView {
+            view.frame = bounds
+            view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+            view.isUserInteractionEnabled = true
+            addSubview(view)
+            clipsToBounds = true
+        } else {
+            assertionFailure("Could not load nib TKCodeFieldView. ")
         }
-        nib.frame = bounds
-        nib.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        nib.isUserInteractionEnabled = true
-        addSubview(nib)
-        
-        clipsToBounds = true
     }
     
-    func setAppearance(borderWith: CGFloat, borderColor: CGColor, selectedBorderColor: CGColor, cornerRadius: CGFloat, selected: Bool) {
-        self.borderColor = borderColor
-        self.selectedBorderColor = selectedBorderColor
+    func setAppearance(cornerRadius: CGFloat,
+                       borderWith: CGFloat,
+                       fontName: String,
+                       fontSize: CGFloat,
+                       textColor: UIColor,
+                       backgroundColor: UIColor,
+                       borderColor: CGColor,
+                       selectedBackgroundColor: UIColor,
+                       selectedBorderColor: CGColor,
+                       invalidateBackgroundColor: UIColor,
+                       invalidateBorderColor: CGColor) {
+        
+        definedBackgroundColor = backgroundColor
+        definedBorderColor = borderColor
+        definedSelectedBackgroundColor = selectedBackgroundColor
+        definedSelectedBorderColor = selectedBorderColor
+        
+        definedInvalidateBackgroundColor = invalidateBackgroundColor
+        definedInvalidateBorderColor = invalidateBorderColor
+        codeLabel.textColor = textColor
+        codeLabel.font = UIFont(name: fontName, size: fontSize)
         layer.borderWidth = borderWith
         layer.cornerRadius = cornerRadius
-        setSelected(selected)
     }
     
     var code: String? {
@@ -61,9 +85,22 @@ class TKCodeFieldView: UIView, TKCodeFieldViewProtocol {
     
     func setSelected(_ selected: Bool) {
         if selected {
-            layer.borderColor = selectedBorderColor
+            backgroundColor = definedSelectedBackgroundColor
+            layer.borderColor = definedSelectedBorderColor
         } else {
-            layer.borderColor = borderColor
+            backgroundColor = definedBackgroundColor
+            layer.borderColor = definedBorderColor
+        }
+    }
+    
+    func setValidated(_ validated: Bool) {
+        if validated {
+            backgroundColor = definedBackgroundColor
+            layer.borderColor = definedBorderColor
+        } else {
+            backgroundColor = definedInvalidateBackgroundColor
+            layer.borderColor = definedInvalidateBorderColor
         }
     }
 }
+
