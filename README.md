@@ -42,20 +42,16 @@ You may easily customize through Interface Builder:
 
 |Property|Type|Default value|Description|
 |---|---|---|---|
-|`secretCode`| `Bool`|false| Hide/show inserted code|
 |`numberOfFields`|`Int`| 4| Number of code fields|
 |`spacing`| `CGFloat`|10| Space between code fields|
 |`cornerRadius`| `CGFloat`|7.0| Code field border|
 |`borderWidth`| `CGFloat`|10| Code field border width|
-|`fontName`| `String`|Helvetica| Code font|
-|`fontSize`| `CGFloat`|17| Code font size|
-|`textColor`| `UIColor`|#686868 (gray)| Code text color|
-|`backgroundFieldColor`| `UIColor`|#F1F1F1 (gray)| Code field background color|
 |`borderColor`| `UIColor`|#CBCBCB (gray)| Code field border color|
-|`selecBackgroundColorField`| `UIColor`|#F1F1F1 (gray)| Selected code field background color|
+|`backgroundColorField`| `UIColor`|#F1F1F1 (gray)| Code field background color|
 |`selecBorderColor`| `CGFloat`|#007AFF (blue)| Selected code field border color|
-|`invalidBackgroundColorField`| `UIColor`|#F1F1F1 (gray)| Invalid code field background color|
+|`selecBackgroundColorField`| `UIColor`|#F1F1F1 (gray)| Selected code field background color|
 |`invalidBorderColor`| `CGFloat`|#007AFF (blue)| Invalid code field border color|
+|`invalidBackgroundColorField`| `UIColor`|#F1F1F1 (gray)| Invalid code field background color|
 
 ### Customize CodeFieldView
 
@@ -74,9 +70,9 @@ To apply your customized view:
 insertCodeView.codeFieldView = CustomCodeFieldView.init
 ```
 
-## Actions
+## Functions
 
-To clear or insert a code:
+To clear code or insert :
 ```swift
 insertCodeView.code = ""
 ```
