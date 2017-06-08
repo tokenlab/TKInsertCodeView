@@ -14,6 +14,8 @@ public protocol TKCodeFieldViewProtocol: class {
     func setValidated(_ validated: Bool)
 }
 
+
+
 class TKCodeFieldView: UIView, TKCodeFieldViewProtocol {
     
     @IBOutlet weak var codeLabel: UILabel!
@@ -50,9 +52,8 @@ class TKCodeFieldView: UIView, TKCodeFieldViewProtocol {
     }
     
     func setAppearance(cornerRadius: CGFloat,
-                       borderWith: CGFloat,
-                       fontName: String,
-                       fontSize: CGFloat,
+                       borderWidth: CGFloat,
+                       font: UIFont,
                        textColor: UIColor,
                        backgroundColor: UIColor,
                        borderColor: CGColor,
@@ -68,9 +69,11 @@ class TKCodeFieldView: UIView, TKCodeFieldViewProtocol {
         
         definedInvalidateBackgroundColor = invalidateBackgroundColor
         definedInvalidateBorderColor = invalidateBorderColor
+
         codeLabel.textColor = textColor
-        codeLabel.font = UIFont(name: fontName, size: fontSize)
-        layer.borderWidth = borderWith
+        codeLabel.font = font
+        
+        layer.borderWidth = borderWidth
         layer.cornerRadius = cornerRadius
     }
     

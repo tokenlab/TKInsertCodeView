@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="VBV-pm-7GV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="VBV-pm-7GV">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="joh-S3-5fq">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="joh-S3-5fq">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="az1-48-Dxk">
@@ -32,29 +32,17 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6jT-X2-WEe" customClass="TKInsertCodeView" customModule="TKInsertCodeView">
-                                                <rect key="frame" x="72.5" y="65.5" width="230" height="50"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="230" id="eMT-yy-0DS"/>
-                                                    <constraint firstAttribute="height" constant="50" id="pzu-J7-wLq"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="secretCode" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom CodeFieldView" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLS-sa-Oas">
-                                                <rect key="frame" x="98.5" y="215.5" width="178.5" height="20.5"/>
+                                                <rect key="frame" x="98.5" y="216.5" width="178.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1mM-Rv-pWQ" customClass="TKInsertCodeView" customModule="TKInsertCodeView">
-                                                <rect key="frame" x="52" y="251" width="270" height="50"/>
+                                                <rect key="frame" x="40" y="251" width="294" height="50"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="270" id="VOm-F2-O5J"/>
-                                                    <constraint firstAttribute="height" constant="50" id="sRd-qm-uYq"/>
+                                                    <constraint firstAttribute="height" constant="50" id="SsP-r8-Seh"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="numberOfFields">
@@ -72,43 +60,31 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="a6h-1I-7Uc">
-                                                <rect key="frame" x="40.5" y="131" width="294" height="40"/>
+                                                <rect key="frame" x="40" y="131" width="294" height="40.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5R-0x-QlS">
-                                                        <rect key="frame" x="0.0" y="0.0" width="66" height="40"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="40" id="wfv-Xy-9OR"/>
-                                                        </constraints>
+                                                        <rect key="frame" x="0.0" y="0.0" width="66" height="40.5"/>
                                                         <state key="normal" title="Shake"/>
                                                         <connections>
                                                             <action selector="shakeButtonTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="58T-BK-94N"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y3V-P3-E5Z">
-                                                        <rect key="frame" x="76" y="0.0" width="66" height="40"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="40" id="i1u-9t-ppI"/>
-                                                        </constraints>
+                                                        <rect key="frame" x="76" y="0.0" width="66" height="40.5"/>
                                                         <state key="normal" title="Invalidate"/>
                                                         <connections>
                                                             <action selector="invalidateButtonTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="I4I-7p-Cpz"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Stl-Fy-FvU">
-                                                        <rect key="frame" x="152" y="0.0" width="66" height="40"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="40" id="38C-HT-e75"/>
-                                                        </constraints>
+                                                        <rect key="frame" x="152" y="0.0" width="66" height="40.5"/>
                                                         <state key="normal" title="Validate"/>
                                                         <connections>
                                                             <action selector="validateButtonTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="loT-0Y-atc"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRm-yc-aih">
-                                                        <rect key="frame" x="228" y="0.0" width="66" height="40"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="40" id="YFV-J3-xKq"/>
-                                                        </constraints>
+                                                        <rect key="frame" x="228" y="0.0" width="66" height="40.5"/>
                                                         <state key="normal" title="Clear"/>
                                                         <connections>
                                                             <action selector="clearButtonTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b5k-R4-MhA"/>
@@ -117,51 +93,62 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fka-LH-nTH" customClass="TKInsertCodeView" customModule="TKInsertCodeView">
+                                                <rect key="frame" x="80" y="60.5" width="215" height="36"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="36" id="7RF-f8-047"/>
+                                                </constraints>
+                                                <color key="textColor" red="0.22241040209790211" green="0.027450980619999999" blue="0.33333334329999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                            </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="6jT-X2-WEe" firstAttribute="top" secondItem="w7P-F8-9lC" secondAttribute="bottom" constant="15" id="7zq-3p-XQe"/>
-                                            <constraint firstItem="lLS-sa-Oas" firstAttribute="centerX" secondItem="az1-48-Dxk" secondAttribute="centerX" id="9FQ-Y7-etc"/>
-                                            <constraint firstItem="w7P-F8-9lC" firstAttribute="leading" secondItem="az1-48-Dxk" secondAttribute="leading" constant="20" id="D4F-kp-9St"/>
-                                            <constraint firstItem="6jT-X2-WEe" firstAttribute="centerX" secondItem="az1-48-Dxk" secondAttribute="centerX" id="DWd-O3-Ewd"/>
-                                            <constraint firstItem="1mM-Rv-pWQ" firstAttribute="top" secondItem="lLS-sa-Oas" secondAttribute="bottom" constant="15" id="KAN-jl-MpF"/>
-                                            <constraint firstItem="a6h-1I-7Uc" firstAttribute="top" secondItem="6jT-X2-WEe" secondAttribute="bottom" constant="15" id="TXX-pJ-a0S"/>
-                                            <constraint firstItem="w7P-F8-9lC" firstAttribute="top" secondItem="az1-48-Dxk" secondAttribute="top" constant="30" id="UD9-5u-zLC"/>
-                                            <constraint firstAttribute="bottom" secondItem="1mM-Rv-pWQ" secondAttribute="bottom" constant="50" id="VXJ-MC-Qf4"/>
-                                            <constraint firstItem="1mM-Rv-pWQ" firstAttribute="centerX" secondItem="az1-48-Dxk" secondAttribute="centerX" id="VcZ-E9-15L"/>
-                                            <constraint firstItem="lLS-sa-Oas" firstAttribute="top" secondItem="6jT-X2-WEe" secondAttribute="bottom" constant="100" id="mVd-6A-2SA"/>
-                                            <constraint firstAttribute="trailing" secondItem="w7P-F8-9lC" secondAttribute="trailing" constant="20" id="pmL-ti-QNO"/>
-                                            <constraint firstItem="a6h-1I-7Uc" firstAttribute="centerX" secondItem="az1-48-Dxk" secondAttribute="centerX" id="zHs-b0-JvM"/>
+                                            <constraint firstItem="fka-LH-nTH" firstAttribute="top" secondItem="w7P-F8-9lC" secondAttribute="bottom" constant="10" id="2pb-RT-gea"/>
+                                            <constraint firstItem="1mM-Rv-pWQ" firstAttribute="top" secondItem="az1-48-Dxk" secondAttribute="top" constant="251" id="Cma-qP-Olp"/>
+                                            <constraint firstItem="1mM-Rv-pWQ" firstAttribute="top" secondItem="lLS-sa-Oas" secondAttribute="bottom" constant="14" id="DBp-lh-F4u"/>
+                                            <constraint firstItem="a6h-1I-7Uc" firstAttribute="centerX" secondItem="lLS-sa-Oas" secondAttribute="centerX" id="ILE-EL-ljr"/>
+                                            <constraint firstItem="1mM-Rv-pWQ" firstAttribute="leading" secondItem="az1-48-Dxk" secondAttribute="leading" constant="40" id="Kkd-io-0Wi"/>
+                                            <constraint firstItem="a6h-1I-7Uc" firstAttribute="centerX" secondItem="1mM-Rv-pWQ" secondAttribute="centerX" id="QrW-mO-AXG"/>
+                                            <constraint firstAttribute="bottom" secondItem="1mM-Rv-pWQ" secondAttribute="bottom" constant="50" id="U1U-by-lGY"/>
+                                            <constraint firstItem="w7P-F8-9lC" firstAttribute="leading" secondItem="az1-48-Dxk" secondAttribute="leading" constant="20" id="Y37-4t-pYW"/>
+                                            <constraint firstItem="1mM-Rv-pWQ" firstAttribute="centerX" secondItem="az1-48-Dxk" secondAttribute="centerX" id="ZlX-Zt-MW3"/>
+                                            <constraint firstAttribute="height" constant="351" id="fGg-FJ-zN6"/>
+                                            <constraint firstItem="a6h-1I-7Uc" firstAttribute="top" secondItem="az1-48-Dxk" secondAttribute="top" constant="131" id="jCZ-0I-rkW"/>
+                                            <constraint firstAttribute="trailing" secondItem="fka-LH-nTH" secondAttribute="trailing" constant="80" id="m8l-3O-ExG"/>
+                                            <constraint firstItem="fka-LH-nTH" firstAttribute="leading" secondItem="az1-48-Dxk" secondAttribute="leading" constant="80" id="mku-De-w6C"/>
+                                            <constraint firstItem="w7P-F8-9lC" firstAttribute="centerX" secondItem="1mM-Rv-pWQ" secondAttribute="centerX" id="quT-Om-oNs"/>
+                                            <constraint firstItem="w7P-F8-9lC" firstAttribute="top" secondItem="az1-48-Dxk" secondAttribute="top" constant="30" id="yYc-Kb-otP"/>
+                                            <constraint firstItem="lLS-sa-Oas" firstAttribute="top" secondItem="a6h-1I-7Uc" secondAttribute="bottom" constant="45" id="z8n-7f-uaQ"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="az1-48-Dxk" secondAttribute="bottom" id="1K6-cI-Ffr"/>
-                                    <constraint firstItem="az1-48-Dxk" firstAttribute="leading" secondItem="joh-S3-5fq" secondAttribute="leading" id="4vr-oK-7EU"/>
-                                    <constraint firstAttribute="trailing" secondItem="az1-48-Dxk" secondAttribute="trailing" id="YLU-K8-19l"/>
-                                    <constraint firstItem="az1-48-Dxk" firstAttribute="top" secondItem="joh-S3-5fq" secondAttribute="top" id="bBI-LL-Tq3"/>
-                                    <constraint firstItem="az1-48-Dxk" firstAttribute="width" secondItem="joh-S3-5fq" secondAttribute="width" id="eY2-KH-37A"/>
-                                    <constraint firstItem="az1-48-Dxk" firstAttribute="centerX" secondItem="joh-S3-5fq" secondAttribute="centerX" id="pyV-LM-ek7"/>
+                                    <constraint firstItem="az1-48-Dxk" firstAttribute="centerX" secondItem="joh-S3-5fq" secondAttribute="centerX" id="2bA-po-oVA"/>
+                                    <constraint firstItem="az1-48-Dxk" firstAttribute="top" secondItem="joh-S3-5fq" secondAttribute="top" id="EaC-dR-Bbc"/>
+                                    <constraint firstAttribute="trailing" secondItem="az1-48-Dxk" secondAttribute="trailing" id="GPo-g6-hpd"/>
+                                    <constraint firstItem="az1-48-Dxk" firstAttribute="leading" secondItem="joh-S3-5fq" secondAttribute="leading" id="UpV-44-Hea"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="joh-S3-5fq" secondAttribute="bottom" id="EEI-3u-xSD"/>
-                            <constraint firstAttribute="trailing" secondItem="joh-S3-5fq" secondAttribute="trailing" id="Kjo-Mh-3NW"/>
-                            <constraint firstItem="joh-S3-5fq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="icW-3g-xAL"/>
-                            <constraint firstItem="joh-S3-5fq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="rkr-O4-9XT"/>
+                            <constraint firstItem="joh-S3-5fq" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="aEx-WE-XpZ"/>
+                            <constraint firstItem="joh-S3-5fq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="f8U-fH-5rI"/>
+                            <constraint firstItem="joh-S3-5fq" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="k1v-PU-x2k"/>
+                            <constraint firstAttribute="trailing" secondItem="joh-S3-5fq" secondAttribute="trailing" id="mPT-Cx-LFJ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="TKInsertCode" id="Izz-6t-szD"/>
                     <connections>
-                        <outlet property="firstInsertCodeView" destination="6jT-X2-WEe" id="11H-zH-blx"/>
+                        <outlet property="firstInsertCodeView" destination="fka-LH-nTH" id="9rl-oI-dda"/>
                         <outlet property="secondInsertCodeView" destination="1mM-Rv-pWQ" id="XRa-Kk-IJL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="982" y="-561"/>
+            <point key="canvasLocation" x="981.60000000000002" y="-561.76911544227892"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Zld-Vo-Iz3">

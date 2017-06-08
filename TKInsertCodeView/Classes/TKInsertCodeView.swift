@@ -18,11 +18,11 @@ public extension TKInsertCodeViewDelegate {
     public func tkInsertCodeView(_ tkInsertCodeView: TKInsertCodeView, didFinishWritingCode code: String) {}
 }
 
-public class TKInsertCodeView: UIView {
+public class TKInsertCodeView: UITextField {
     @IBOutlet weak var codeTextField: UITextField!
     @IBOutlet weak var codeStackView: UIStackView!
     
-    public var delegate: TKInsertCodeViewDelegate?
+    public var codeDelegate: TKInsertCodeViewDelegate?
     public var codeFieldView: (() -> TKCodeFieldViewProtocol) = TKCodeFieldView.init {
         didSet {
             configureCodeViews()
@@ -47,18 +47,14 @@ public class TKInsertCodeView: UIView {
     
     // MARK:- IBInspectables
     
-    @IBInspectable var secretCode: Bool = false
     @IBInspectable var numberOfFields: Int = 4
     @IBInspectable var spacing: CGFloat = 10.0
     @IBInspectable var cornerRadius: CGFloat = 7.0
     @IBInspectable var borderWidth: CGFloat = 1.0
-    @IBInspectable var fontName: String = "Helvetica"
-    @IBInspectable var fontSize: CGFloat = 17.0
-    @IBInspectable var textColor: UIColor = #colorLiteral(red: 0.4078431373, green: 0.4078431373, blue: 0.4078431373, alpha: 1)
     @IBInspectable var backgroundColorField: UIColor = #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1)
     @IBInspectable var borderColor: UIColor = #colorLiteral(red: 0.7960784314, green: 0.7960784314, blue: 0.7960784314, alpha: 1)
-    @IBInspectable var selecBackgroundColorField: UIColor = #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1)
-    @IBInspectable var selecBorderColor: UIColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 0.7714484279)
+    @IBInspectable var selectBackgroundColorField: UIColor = #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1)
+    @IBInspectable var selectBorderColor: UIColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 0.7714484279)
     @IBInspectable var invalidBackgroundColorField: UIColor = #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1)
     @IBInspectable var invalidBorderColor: UIColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
     
@@ -66,10 +62,12 @@ public class TKInsertCodeView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.borderStyle = .none
     }
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        self.borderStyle = .none
         loadNib()
     }
     
@@ -113,18 +111,17 @@ public class TKInsertCodeView: UIView {
     }
     
     fileprivate func configureCodeViewsAppearance() {
-        codeStackView.arrangedSubviews.enumerated().forEach { (index, view) in
+        codeStackView.arrangedSubviews.forEach { view in
             if let codeFieldView = view as? TKCodeFieldView {
                 codeFieldView.setAppearance(
                     cornerRadius: cornerRadius,
-                    borderWith: borderWidth,
-                    fontName: fontName,
-                    fontSize: fontSize,
-                    textColor: textColor,
+                    borderWidth: borderWidth,
+                    font: self.font!,
+                    textColor: self.textColor!,
                     backgroundColor: backgroundColorField,
                     borderColor: borderColor.cgColor,
-                    selectedBackgroundColor: selecBackgroundColorField,
-                    selectedBorderColor: selecBorderColor.cgColor,
+                    selectedBackgroundColor: selectBackgroundColorField,
+                    selectedBorderColor: selectBorderColor.cgColor,
                     invalidateBackgroundColor: invalidBackgroundColorField,
                     invalidateBorderColor: invalidBorderColor.cgColor
                 )
@@ -160,7 +157,7 @@ public class TKInsertCodeView: UIView {
     }
     
     public func validate() {
-        codeStackView.arrangedSubviews.enumerated().forEach { (index, view) in
+        codeStackView.arrangedSubviews.forEach { view in
             if let codeFieldView = view as? TKCodeFieldViewProtocol {
                 codeFieldView.setValidated(true)
             }
@@ -169,7 +166,7 @@ public class TKInsertCodeView: UIView {
     }
     
     public func invalidate() {
-        codeStackView.arrangedSubviews.enumerated().forEach { (index, view) in
+        codeStackView.arrangedSubviews.forEach { view in
             if let codeFieldView = view as? TKCodeFieldViewProtocol {
                 codeFieldView.setValidated(false)
             }
@@ -206,19 +203,19 @@ public class TKInsertCodeView: UIView {
         guard let text =  textField.text else { return }
 
         if selectedField != -1 {
-            delegate?.tkInsertCodeView(self, didChangeCode: text)
+            codeDelegate?.tkInsertCodeView(self, didChangeCode: text)
         }
         
         for (index, character) in text.characters.enumerated() {
             guard let view = codeStackView.arrangedSubviews.first(where: { $0.tag == index }), let codeFieldView = view as? TKCodeFieldViewProtocol else { continue }
-            codeFieldView.code = secretCode ? "•" : "\(character)"
+            codeFieldView.code = self.isSecureTextEntry ? "•" : "\(character)"
         }
         for index in text.characters.count..<6 {
             guard let view = codeStackView.arrangedSubviews.first(where: { $0.tag == index }), let codeFieldView = view as? TKCodeFieldViewProtocol else { continue }
             codeFieldView.code = ""
         }
         
-        if text.characters.count == codeStackView.arrangedSubviews.count  { delegate?.tkInsertCodeView(self, didFinishWritingCode: text) }
+        if text.characters.count == codeStackView.arrangedSubviews.count  { codeDelegate?.tkInsertCodeView(self, didFinishWritingCode: text) }
     }
 }
 

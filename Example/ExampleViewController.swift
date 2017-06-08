@@ -18,7 +18,7 @@ class ExampleViewController: UIViewController {
         super.viewDidLoad()
 
         firstInsertCodeView.setBecomeFirstResponder()
-        firstInsertCodeView.delegate = self
+        firstInsertCodeView.codeDelegate = self
         secondInsertCodeView.codeFieldView = CustomCodeFieldView.init
     }
     
