@@ -14,8 +14,6 @@ public protocol TKCodeFieldViewProtocol: class {
     func setValidated(_ validated: Bool)
 }
 
-
-
 class TKCodeFieldView: UIView, TKCodeFieldViewProtocol {
     
     @IBOutlet weak var codeLabel: UILabel!

@@ -10,6 +10,8 @@ TKInsertCodeView is a practical and customizable code insert UIView.
 
 To run the example project, clone the repo and open `TKInsertCodeView.xcodeproj`
 
+<img src="https://raw.githubusercontent.com/tokenlab/TKInsertCodeView/master/Screenshots/Example.gif" width="320" height="whatever">
+
 ## Requirements
 
 * Swift 3
@@ -22,7 +24,7 @@ To run the example project, clone the repo and open `TKInsertCodeView.xcodeproj`
 TKInsertCodeView is available through Tokenlab's TKPodSpec. To install it, simply add the following lines to your Podfile:
 
 ```ruby
-pod 'TKInsertCodeView', :git => 'https://github.com/tokenlab/TKPodSpecs.git'
+pod 'TKInsertCodeView', :git => 'https://github.com/tokenlab/TKInsertCodeView.git'
 ```
 
 ### Carthage
@@ -32,13 +34,13 @@ Simply add the following lines to your Cartfile:
 github 'tokenlab/TKInsertCodeView'
 ```
 
-## Customizations
+## Customization
 
-### IBInspectables
+### IBInspectable
 
 You may easily customize through Interface Builder:
 
-|Var|Type|Default value|Description|
+|Property|Type|Default value|Description|
 |---|---|---|---|
 |`secretCode`| `Bool`|false| Hide/show inserted code|
 |`numberOfFields`|`Int`| 4| Number of code fields|
@@ -52,6 +54,8 @@ You may easily customize through Interface Builder:
 |`borderColor`| `UIColor`|#CBCBCB (gray)| Code field border color|
 |`selecBackgroundColorField`| `UIColor`|#F1F1F1 (gray)| Selected code field background color|
 |`selecBorderColor`| `CGFloat`|#007AFF (blue)| Selected code field border color|
+|`invalidBackgroundColorField`| `UIColor`|#F1F1F1 (gray)| Invalid code field background color|
+|`invalidBorderColor`| `CGFloat`|#007AFF (blue)| Invalid code field border color|
 
 ### Customize CodeFieldView
 
@@ -70,14 +74,59 @@ To apply your customized view:
 insertCodeView.codeFieldView = CustomCodeFieldView.init
 ```
 
-## Keyboard
+## Actions
 
-* To programmatically keyboard up:
+To clear or insert a code:
+```swift
+insertCodeView.code = ""
+```
+
+To shake view:
+```swift
+insertCodeView.shake()
+```
+
+To present invalidate layout:
+```swift
+insertCodeView.invalidate()
+```
+
+To display normal layout:
+```swift
+insertCodeView.validate()
+```
+
+To programmatically keyboard up:
 ```swift
 insertCodeView.setBecomeFirstResponder()
 ```
 
-* To programmatically keyboard down:
+To programmatically keyboard down:
 ```swift
 insertCodeView.setResignFirstResponder()
 ```
+
+## TKInsertCodeViewDelegate
+
+There are two optional functions.
+
+When a code field was changed, this one is called:
+
+```swift
+func tkInsertCodeView(_ tkInsertCodeView: TKInsertCodeView, didChangeCode code: String)
+```
+
+When all code fields were fully:
+```swift
+func tkInsertCodeView(_ tkInsertCodeView: TKInsertCodeView, didFinishWritingCode code: String)
+```
+
+## Authors
+
+[damboscolo](https://github.com/damboscolo), danielehidalgo@gmail.com
+
+[leosampaio](https://github.com/leosampaio), leo.sampaio.ferraz.ribeiro@gmail.com
+
+## License
+
+TKInsertCodeView is available under the MIT license. See the LICENSE file for more info.

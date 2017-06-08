@@ -18,7 +18,6 @@ class ExampleViewController: UIViewController {
         super.viewDidLoad()
 
         firstInsertCodeView.setBecomeFirstResponder()
-        firstInsertCodeView.codeDelegate = self
         secondInsertCodeView.codeFieldView = CustomCodeFieldView.init
     }
     
@@ -39,8 +38,3 @@ class ExampleViewController: UIViewController {
     }
 }
 
-extension ExampleViewController: TKInsertCodeViewDelegate {
-    func tkInsertCodeView(_ tkInsertCodeView: TKInsertCodeView, didFinishWritingCode code: String) {
-        firstInsertCodeView.code = ""
-    }
-}
