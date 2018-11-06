@@ -16,16 +16,14 @@
 		833C6AF51EE0A16700D32086 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 833C6AF41EE0A16700D32086 /* Assets.xcassets */; };
 		833C6AF81EE0A16700D32086 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 833C6AF61EE0A16700D32086 /* LaunchScreen.storyboard */; };
 		833C6B1E1EE0A19F00D32086 /* TKCodeFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833C6B1A1EE0A19F00D32086 /* TKCodeFieldView.swift */; };
-		833C6B1F1EE0A19F00D32086 /* TKCodeFieldView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 833C6B1B1EE0A19F00D32086 /* TKCodeFieldView.xib */; };
 		833C6B201EE0A19F00D32086 /* TKInsertCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833C6B1C1EE0A19F00D32086 /* TKInsertCodeView.swift */; };
-		833C6B211EE0A19F00D32086 /* TKInsertCodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 833C6B1D1EE0A19F00D32086 /* TKInsertCodeView.xib */; };
 		833C6B221EE0A1CF00D32086 /* TKInsertCodeView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833C6ACD1EE0A15500D32086 /* TKInsertCodeView.framework */; };
 		833C6B231EE0A1CF00D32086 /* TKInsertCodeView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 833C6ACD1EE0A15500D32086 /* TKInsertCodeView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		83649D241EE20D6C009385F0 /* UIView+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83649D231EE20D6C009385F0 /* UIView+Bundle.swift */; };
 		83A7E6101EE0BC300059483A /* CustomCodeFieldView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83A7E60F1EE0BC300059483A /* CustomCodeFieldView.xib */; };
 		83A7E6121EE0BC410059483A /* CustomCodeFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A7E6111EE0BC410059483A /* CustomCodeFieldView.swift */; };
-		83F33F361EE1E332002F0CF5 /* TKInsertCodeView.xib in Sources */ = {isa = PBXBuildFile; fileRef = 833C6B1D1EE0A19F00D32086 /* TKInsertCodeView.xib */; };
-		83F33F371EE1E332002F0CF5 /* TKCodeFieldView.xib in Sources */ = {isa = PBXBuildFile; fileRef = 833C6B1B1EE0A19F00D32086 /* TKCodeFieldView.xib */; };
+		E17EEA9E2191B6310021B841 /* TKInsertCodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17EEA9C2191B6310021B841 /* TKInsertCodeView.xib */; };
+		E17EEA9F2191B6310021B841 /* TKCodeFieldView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17EEA9D2191B6310021B841 /* TKCodeFieldView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,12 +88,12 @@
 		833C6AFE1EE0A16700D32086 /* ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		833C6B091EE0A16800D32086 /* ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		833C6B1A1EE0A19F00D32086 /* TKCodeFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TKCodeFieldView.swift; path = Classes/TKCodeFieldView.swift; sourceTree = "<group>"; };
-		833C6B1B1EE0A19F00D32086 /* TKCodeFieldView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TKCodeFieldView.xib; path = Classes/TKCodeFieldView.xib; sourceTree = "<group>"; };
 		833C6B1C1EE0A19F00D32086 /* TKInsertCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TKInsertCodeView.swift; path = Classes/TKInsertCodeView.swift; sourceTree = "<group>"; };
-		833C6B1D1EE0A19F00D32086 /* TKInsertCodeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TKInsertCodeView.xib; path = Classes/TKInsertCodeView.xib; sourceTree = "<group>"; };
 		83649D231EE20D6C009385F0 /* UIView+Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Bundle.swift"; sourceTree = "<group>"; };
 		83A7E60F1EE0BC300059483A /* CustomCodeFieldView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCodeFieldView.xib; sourceTree = "<group>"; };
 		83A7E6111EE0BC410059483A /* CustomCodeFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCodeFieldView.swift; sourceTree = "<group>"; };
+		E17EEA9C2191B6310021B841 /* TKInsertCodeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TKInsertCodeView.xib; path = Classes/TKInsertCodeView.xib; sourceTree = "<group>"; };
+		E17EEA9D2191B6310021B841 /* TKCodeFieldView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TKCodeFieldView.xib; path = Classes/TKCodeFieldView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,9 +196,9 @@
 			isa = PBXGroup;
 			children = (
 				833C6B1C1EE0A19F00D32086 /* TKInsertCodeView.swift */,
-				833C6B1D1EE0A19F00D32086 /* TKInsertCodeView.xib */,
+				E17EEA9C2191B6310021B841 /* TKInsertCodeView.xib */,
 				833C6B1A1EE0A19F00D32086 /* TKCodeFieldView.swift */,
-				833C6B1B1EE0A19F00D32086 /* TKCodeFieldView.xib */,
+				E17EEA9D2191B6310021B841 /* TKCodeFieldView.xib */,
 				83649D231EE20D6C009385F0 /* UIView+Bundle.swift */,
 			);
 			name = Classes;
@@ -327,18 +325,19 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = Tokenlab;
 				TargetAttributes = {
 					833C6ACC1EE0A15400D32086 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = 4EZK9PR9TK;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 					833C6AD51EE0A15500D32086 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = 4EZK9PR9TK;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 					833C6AEA1EE0A16700D32086 = {
@@ -387,8 +386,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				833C6B1F1EE0A19F00D32086 /* TKCodeFieldView.xib in Resources */,
-				833C6B211EE0A19F00D32086 /* TKInsertCodeView.xib in Resources */,
+				E17EEA9E2191B6310021B841 /* TKInsertCodeView.xib in Resources */,
+				E17EEA9F2191B6310021B841 /* TKCodeFieldView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,8 +430,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83F33F361EE1E332002F0CF5 /* TKInsertCodeView.xib in Sources */,
-				83F33F371EE1E332002F0CF5 /* TKCodeFieldView.xib in Sources */,
 				833C6B1E1EE0A19F00D32086 /* TKCodeFieldView.swift in Sources */,
 				83649D241EE20D6C009385F0 /* UIView+Bundle.swift in Sources */,
 				833C6B201EE0A19F00D32086 /* TKInsertCodeView.swift in Sources */,
@@ -526,21 +523,29 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -580,21 +585,29 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -634,7 +647,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -656,7 +670,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -669,7 +684,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.tokenlab.TKInsertCodeViewTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -682,7 +698,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.tokenlab.TKInsertCodeViewTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
