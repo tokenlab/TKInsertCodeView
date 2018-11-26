@@ -155,7 +155,7 @@ public class TKInsertCodeView: UIView {
     
     public func shake() {
         let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         animation.duration = 0.6
         animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
         layer.add(animation, forKey: "shake")
@@ -180,7 +180,7 @@ public class TKInsertCodeView: UIView {
     
     // MARK:- Private functions
     
-    func didTapOnDigitView(_ sender: UITapGestureRecognizer) {
+    @objc func didTapOnDigitView(_ sender: UITapGestureRecognizer) {
         guard let view = sender.view else { return }
         codeTextField.becomeFirstResponder()
         let position = view.tag
@@ -200,7 +200,7 @@ public class TKInsertCodeView: UIView {
         selectedField = selectedPosition
     }
     
-    func codeFieldDidChange(_ textField: UITextField) {
+    @objc func codeFieldDidChange(_ textField: UITextField) {
         if let selectedRange = codeTextField.selectedTextRange {
             makeSelectionForPosition(codeTextField.offset(from: codeTextField.beginningOfDocument, to: selectedRange.start))
         }
@@ -211,16 +211,16 @@ public class TKInsertCodeView: UIView {
             delegate?.tkInsertCodeView(self, didChangeCode: text)
         }
         
-        for (index, character) in text.characters.enumerated() {
+        for (index, character) in text.enumerated() {
             guard let view = codeStackView.arrangedSubviews.first(where: { $0.tag == index }), let codeFieldView = view as? TKCodeFieldViewProtocol else { continue }
             codeFieldView.code = secretCode ? "•" : "\(character)"
         }
-        for index in text.characters.count..<6 {
+        for index in text.count..<6 {
             guard let view = codeStackView.arrangedSubviews.first(where: { $0.tag == index }), let codeFieldView = view as? TKCodeFieldViewProtocol else { continue }
             codeFieldView.code = ""
         }
         
-        if text.characters.count == codeStackView.arrangedSubviews.count  { delegate?.tkInsertCodeView(self, didFinishWritingCode: text) }
+        if text.count == codeStackView.arrangedSubviews.count  { delegate?.tkInsertCodeView(self, didFinishWritingCode: text) }
     }
 }
 
@@ -230,7 +230,7 @@ extension TKInsertCodeView: UITextFieldDelegate {
         if range.location == codeStackView.arrangedSubviews.count { return false }
         if let text = textField.text,
             range.length == 0,
-            text.characters.count >= codeStackView.arrangedSubviews.count {
+            text.count >= codeStackView.arrangedSubviews.count {
             return false
         }
         return true
